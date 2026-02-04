@@ -1,0 +1,414 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#0b0b0e" />
+
+  <!-- =========================
+    ここだけ編集すればOK（基本情報）
+  ========================== -->
+  <title>田川ボクシング｜ボクシング後援会</title>
+  <meta name="description" content="田川ボクシングは、選手の挑戦を継続できる環境で支えるボクシング後援会です。会員募集中。" />
+  <link rel="canonical" href="https://example.com/" />
+
+  <!-- OGP（SNSシェア用） -->
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="ja_JP" />
+  <meta property="og:title" content="田川ボクシング｜ボクシング後援会" />
+  <meta property="og:description" content="あなたの応援が、練習・遠征・コンディションづくりに直結します。" />
+  <meta property="og:url" content="https://example.com/" />
+  <!-- og:image は公開後に画像URLへ差し替え推奨 -->
+  <meta property="og:image" content="https://example.com/ogp.jpg" />
+
+  <!-- Twitterカード -->
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <!-- favicon（用意できたら差し替え） -->
+  <link rel="icon" href="/favicon.ico" />
+
+  <style>
+    :root{
+      --bg:#0b0b0e; --card:#12121a; --text:#f3f3f6; --muted:#b9b9c6;
+      --accent:#e11d2e; --line:rgba(255,255,255,.10);
+      --focus: rgba(225,29,46,.55);
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      font-family:system-ui,-apple-system,"Segoe UI",Roboto,"Hiragino Kaku Gothic ProN","Noto Sans JP",sans-serif;
+      background:
+        radial-gradient(1200px 600px at 20% 0%, rgba(225,29,46,.18), transparent 60%),
+        radial-gradient(900px 500px at 90% 10%, rgba(255,255,255,.06), transparent 55%),
+        var(--bg);
+      color:var(--text);
+      line-height:1.7;
+    }
+    a{color:inherit}
+    .container{max-width:980px;margin:0 auto;padding:0 18px}
+
+    header{
+      padding:16px 0;
+      border-bottom:1px solid var(--line);
+      position:sticky; top:0;
+      backdrop-filter: blur(10px);
+      background:rgba(11,11,14,.72);
+      z-index:10;
+    }
+    .nav{display:flex;align-items:center;justify-content:space-between;gap:12px}
+    .brand{display:flex;align-items:center;gap:10px;font-weight:700;min-width:180px}
+    .logo{
+      width:34px;height:34px;border-radius:10px;background:
+      linear-gradient(135deg, rgba(225,29,46,.95), rgba(225,29,46,.35));
+      display:grid;place-items:center;border:1px solid rgba(225,29,46,.45)
+    }
+    .logo span{font-size:14px;letter-spacing:.04em}
+    .nav a{opacity:.92;text-decoration:none}
+    .navlinks{display:flex;gap:14px;flex-wrap:wrap;justify-content:flex-end;align-items:center}
+    .btn{
+      display:inline-flex;align-items:center;justify-content:center;gap:8px;
+      padding:12px 16px;border-radius:12px;
+      border:1px solid rgba(225,29,46,.55);
+      background:linear-gradient(135deg, rgba(225,29,46,.95), rgba(225,29,46,.55));
+      text-decoration:none;font-weight:800;
+      cursor:pointer;
+    }
+    .btn.secondary{
+      background:transparent;border:1px solid var(--line); font-weight:650;
+    }
+    .btn:focus, button:focus, input:focus, select:focus, textarea:focus{
+      outline:2px solid var(--focus);
+      outline-offset:2px;
+    }
+
+    /* ハンバーガー */
+    .menu-btn{
+      display:none;
+      background:transparent;
+      border:1px solid var(--line);
+      border-radius:12px;
+      padding:10px 12px;
+      color:var(--text);
+      cursor:pointer;
+      font-weight:700;
+    }
+    .menu-panel{
+      display:none;
+      margin-top:12px;
+      border-top:1px solid var(--line);
+      padding-top:12px;
+    }
+    .menu-panel a{
+      display:block;
+      padding:10px 4px;
+      opacity:.95;
+    }
+
+    .hero{padding:52px 0 26px}
+    .hero-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:18px;align-items:stretch}
+    .headline{font-size:42px;line-height:1.15;margin:0 0 12px}
+    .sub{color:var(--muted);margin:0 0 18px;font-size:16px}
+    .card{background:rgba(18,18,26,.72);border:1px solid var(--line);border-radius:18px;padding:18px}
+    .badges{display:flex;gap:8px;flex-wrap:wrap;margin:14px 0 0}
+    .badge{font-size:12px;color:var(--muted);border:1px solid var(--line);padding:6px 10px;border-radius:999px}
+    section{padding:26px 0}
+    h2{margin:0 0 12px;font-size:22px}
+    .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+    .grid2{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+    .muted{color:var(--muted)}
+    ul{margin:10px 0 0;padding-left:18px}
+    .price{font-size:22px;font-weight:900}
+    .hr{border-top:1px solid var(--line); margin:18px 0}
+    form{display:grid;gap:10px}
+    input,select,textarea{
+      width:100%; padding:12px 12px; border-radius:12px; border:1px solid var(--line);
+      background:rgba(0,0,0,.22); color:var(--text); outline:none;
+    }
+    textarea{min-height:110px; resize:vertical}
+    footer{padding:26px 0 46px; border-top:1px solid var(--line); color:var(--muted)}
+    .fineprint{font-size:12px; color:var(--muted); line-height:1.6}
+
+    @media (max-width:860px){
+      .hero-grid{grid-template-columns:1fr}
+      .headline{font-size:34px}
+      .grid3,.grid2{grid-template-columns:1fr}
+      .navlinks{display:none}
+      .menu-btn{display:inline-flex}
+      .menu-panel.open{display:block}
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="container">
+    <div class="nav">
+      <div class="brand" aria-label="サイトブランド">
+        <div class="logo" aria-hidden="true"><span>LOGO</span></div>
+        <div id="siteNameHeader">田川ボクシング</div>
+      </div>
+
+      <nav class="navlinks" aria-label="ページ内ナビゲーション（PC）">
+        <a href="#about">後援会とは</a>
+        <a href="#benefits">メリット</a>
+        <a href="#plans">会費</a>
+        <a href="#faq">FAQ</a>
+        <a href="#join">入会</a>
+      </nav>
+
+      <div style="display:flex; gap:10px; align-items:center;">
+        <a class="btn" href="#join">後援会に入会する</a>
+        <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="menuPanel">
+          メニュー
+        </button>
+      </div>
+    </div>
+
+    <!-- モバイル用メニュー -->
+    <div class="menu-panel" id="menuPanel" role="navigation" aria-label="ページ内ナビゲーション（スマホ）">
+      <a href="#about">後援会とは</a>
+      <a href="#benefits">メリット</a>
+      <a href="#plans">会費</a>
+      <a href="#faq">FAQ</a>
+      <a href="#join">入会</a>
+    </div>
+  </div>
+</header>
+
+<main>
+  <div class="container hero">
+    <div class="hero-grid">
+      <div>
+        <h1 class="headline">一人の挑戦を、みんなの力で。</h1>
+        <p class="sub">
+          <span id="siteNameHero">田川ボクシング</span>は、選手の挑戦を「継続できる環境」で支えるボクシング後援会です。
+          あなたの応援が、練習・遠征・コンディションづくりに直結します。
+        </p>
+        <div style="display:flex; gap:10px; flex-wrap:wrap;">
+          <a class="btn" href="#join">入会する</a>
+          <a class="btn secondary" href="#about">内容を見る</a>
+        </div>
+        <div class="badges">
+          <div class="badge">月1回（目安）の活動報告</div>
+          <div class="badge">試合・イベント先行案内</div>
+          <div class="badge">支援の見える化</div>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2 style="margin-top:0">お知らせ</h2>
+        <p class="muted" style="margin:0">
+          ・次戦：未定（決まり次第更新）<br/>
+          ・会員募集中：ライト / スタンダード / プレミアム
+        </p>
+        <div class="hr"></div>
+        <p class="muted" style="margin:0">
+          ※ロゴ・写真・会費は後から差し替え可能です。
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <section id="about">
+    <div class="container">
+      <h2>後援会とは</h2>
+      <div class="grid2">
+        <div class="card">
+          <p style="margin:0">
+            選手が競技に集中できるよう、資金面・活動面を支援し、挑戦を長く続けられる土台をつくります。
+          </p>
+        </div>
+        <div class="card">
+          <div class="muted">主な支援内容</div>
+          <ul>
+            <li>練習環境の整備（ジム利用・トレーナー等）</li>
+            <li>試合・遠征関連（交通費・宿泊費など）</li>
+            <li>コンディション管理（ケア・栄養・メンテナンス等）</li>
+            <li>広報・活動サポート（撮影・発信・イベント）</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="benefits">
+    <div class="container">
+      <h2>会員になるメリット</h2>
+      <div class="grid3">
+        <div class="card">
+          <strong>活動報告</strong><br/>
+          <span class="muted">練習・試合・近況を定期共有（目安：月1回）</span>
+        </div>
+        <div class="card">
+          <strong>先行案内</strong><br/>
+          <span class="muted">試合情報、イベント参加枠などを先にお届け</span>
+        </div>
+        <div class="card">
+          <strong>支援の見える化</strong><br/>
+          <span class="muted">会費の使途や成果を簡易レポートで共有</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="plans">
+    <div class="container">
+      <h2>会費プラン</h2>
+      <p class="muted" style="margin-top:0">※金額や特典は確定後に更新できます。</p>
+      <div class="grid3">
+        <div class="card">
+          <div><strong>ライト会員</strong></div>
+          <div class="price">¥1,000<span class="muted" style="font-size:12px"> / 月</span></div>
+          <div class="muted">まずは気軽に応援</div>
+        </div>
+        <div class="card" style="border-color:rgba(225,29,46,.35)">
+          <div><strong>スタンダード会員</strong></div>
+          <div class="price">¥3,000<span class="muted" style="font-size:12px"> / 月</span></div>
+          <div class="muted">活動をしっかり支援</div>
+        </div>
+        <div class="card">
+          <div><strong>プレミアム会員</strong></div>
+          <div class="price">¥10,000<span class="muted" style="font-size:12px"> / 月</span></div>
+          <div class="muted">より強い後押しを</div>
+        </div>
+      </div>
+      <div class="card" style="margin-top:12px">
+        <strong>法人・団体会員</strong><br/>
+        <span class="muted">協賛・ロゴ掲載・イベント連携など、ご相談ください。</span>
+      </div>
+    </div>
+  </section>
+
+  <section id="faq">
+    <div class="container">
+      <h2>よくある質問</h2>
+      <div class="grid2">
+        <div class="card">
+          <strong>Q. いつでも退会できますか？</strong><br/>
+          <span class="muted">A. はい。次回更新前までにご連絡いただければ手続きします。</span>
+        </div>
+        <div class="card">
+          <strong>Q. 会費は何に使われますか？</strong><br/>
+          <span class="muted">A. 練習・試合・遠征・ケアなど、競技活動の継続に必要な費用です。</span>
+        </div>
+        <div class="card">
+          <strong>Q. 会員特典は変わることがありますか？</strong><br/>
+          <span class="muted">A. はい。より良くするため、内容は更新される場合があります。</span>
+        </div>
+        <div class="card">
+          <strong>Q. 支払い方法は？</strong><br/>
+          <span class="muted">A. 申込み後にご案内します（銀行振込/クレカ等、順次整備）。</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="join">
+    <div class="container">
+      <h2>入会申し込み</h2>
+      <div class="grid2">
+        <div class="card">
+          <p style="margin-top:0">
+            下記フォームからお申し込みください。確認後、支払い方法などをご案内します。
+          </p>
+
+          <!-- =========================
+            フォーム送信先を設定（どちらか1つ）
+            A) Formspree：action="https://formspree.io/f/xxxxxx"
+            B) Googleフォーム：action="https://docs.google.com/forms/d/e/...../formResponse"
+               name属性をGoogleフォームの entry.xxxxx に合わせる必要あり
+          ========================== -->
+          <form action="https://formspree.io/f/xxxxxxxx" method="post">
+            <input name="name" placeholder="お名前（必須）" required autocomplete="name" />
+            <input type="email" name="email" placeholder="メール（必須）" required autocomplete="email" />
+            <input name="phone" placeholder="電話（任意）" autocomplete="tel" />
+            <select name="plan" required>
+              <option value="">希望プラン（必須）</option>
+              <option>ライト会員（月1,000円）</option>
+              <option>スタンダード会員（月3,000円）</option>
+              <option>プレミアム会員（月10,000円）</option>
+              <option>法人・団体会員（相談）</option>
+            </select>
+            <textarea name="message" placeholder="応援メッセージ（任意）"></textarea>
+
+            <!-- 送信後の遷移（Formspreeで有効） -->
+            <input type="hidden" name="_subject" value="田川ボクシング 入会申し込み" />
+            <input type="hidden" name="_redirect" value="./thanks.html" />
+
+            <button class="btn" type="submit">この内容で申し込む</button>
+            <div class="fineprint">
+              ※送信後は自動返信/確認連絡の運用をおすすめします。<br/>
+              ※個人情報の取り扱いは下記「プライバシー」欄をご確認ください。
+            </div>
+          </form>
+        </div>
+
+        <div class="card">
+          <strong>団体情報</strong>
+          <p class="muted" id="orgInfo"></p>
+          <div class="hr"></div>
+          <strong>ひとこと</strong>
+          <p class="muted" style="margin-bottom:0">
+            応援は「気持ち」だけでも力になります。  
+            もし一緒に支えてくれるなら、ぜひ後援会へ。
+          </p>
+        </div>
+      </div>
+
+      <div class="card" style="margin-top:12px">
+        <strong>プライバシー（簡易）</strong>
+        <p class="fineprint" style="margin:8px 0 0;">
+          送信いただいた情報は、入会連絡・会費案内・活動報告の配信にのみ使用します。第三者提供は行いません（法令に基づく場合を除く）。
+          退会や配信停止は、いつでもご連絡ください。
+        </p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="container">
+    © <span id="y"></span> <span id="siteNameFooter">田川ボクシング</span>. All rights reserved.
+  </div>
+  <script>
+    // 年
+    document.getElementById("y").textContent = new Date().getFullYear();
+
+    // モバイルメニュー
+    const btn = document.getElementById("menuBtn");
+    const panel = document.getElementById("menuPanel");
+    if (btn && panel) {
+      btn.addEventListener("click", () => {
+        const open = panel.classList.toggle("open");
+        btn.setAttribute("aria-expanded", open ? "true" : "false");
+      });
+      // クリックしたら閉じる
+      panel.querySelectorAll("a").forEach(a => a.addEventListener("click", () => {
+        panel.classList.remove("open");
+        btn.setAttribute("aria-expanded", "false");
+      }));
+    }
+
+    // サイト名を一括表示
+    const SITE_NAME = "田川ボクシング";
+    document.getElementById("siteNameHeader").textContent = SITE_NAME;
+    document.getElementById("siteNameHero").textContent = SITE_NAME;
+    document.getElementById("siteNameFooter").textContent = SITE_NAME;
+
+    // 団体情報の自動差し替え（ここはあとで埋めればOK）
+    const ORG_REP = "田中たしお";
+    const ORG_CONTACT = "（メール/電話）";
+    const ORG_AREA = "（地域）";
+    const ORG_SNS = "（X/Instagram/YouTube など）";
+    document.getElementById("orgInfo").innerHTML =
+      `後援会名： ${SITE_NAME}<br/>
+       代表： ${ORG_REP}<br/>
+       連絡先： ${ORG_CONTACT}<br/>
+       活動拠点： ${ORG_AREA}<br/>
+       SNS： ${ORG_SNS}`;
+  </script>
+</footer>
+
+</body>
+</html>
